@@ -22,7 +22,30 @@ entity math_real_tb is
 end entity math_real_tb;
 
 architecture sim of math_real_tb is
-    type funcs_t is (F_MOD, F_CEIL, F_SQRT, F_FLOOR, F_ROUND, F_SIGN, F_TRUNC);
+    type funcs_t is
+        (
+            F_SIGN,
+            F_CEIL,
+            F_FLOOR,
+            F_ROUND,
+            F_TRUNC,
+            F_MOD,
+            F_REALMAX,
+            F_REALMIN,
+            F_SQRT,
+            F_CBRT,
+            F_POW,
+            F_POW2,
+            F_EXP,
+            F_LOG,
+            F_LOG2,
+            F_LOG10,
+            F_LOGB,
+            F_SIN,
+            F_COS,
+            F_TAN,
+            F_ARCSIN
+        );
     type sim_vec_t is record
         func            : funcs_t;
         arg0            : real;
@@ -48,6 +71,9 @@ architecture sim of math_real_tb is
         (F_MOD, 100.0, 50.0, 0.0),
         (F_MOD, 100.0, 49.0, 2.0),
         (F_MOD, 2.0 ** 32 - 1.0, 16.0, -1.0),
+        (F_REALMAX, 2.0, 1.0, 2.0),
+        (F_REALMIN, 2.0, 1.0, 1.0),
+        (F_SQRT, 81.0, 0.0, 9.0),
         (F_SQRT, 9.0, 0.0, 3.0)
     );
 
@@ -66,16 +92,24 @@ begin
                     res := sign(s.arg0);
                 when F_CEIL =>
                     res := ceil(s.arg0);
-                when F_TRUNC =>
-                    res := trunc(s.arg0);
                 when F_FLOOR =>
                     res := floor(s.arg0);
                 when F_ROUND =>
                     res := round(s.arg0);
+                when F_TRUNC =>
+                    res := trunc(s.arg0);
                 when F_MOD =>
                     res := s.arg0 mod s.arg1;
+                when F_REALMAX =>
+                    res := realmax(s.arg0, s.arg1);
+                when F_REALMIN =>
+                    res := realmin(s.arg0, s.arg1);
                 when F_SQRT =>
                     res := sqrt(s.arg0);
+                when F_CBRT =>
+                    res := cbrt(s.arg0);
+                when F_POW =>
+                    res := s.arg0 ** s.arg1;
                 when others =>
                     null;
             end case;
