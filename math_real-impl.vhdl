@@ -51,12 +51,14 @@ begin
     return ctrunc(x);
 end function trunc;
 
+-- NOTE: fmod is *NOT* the same thing (rounding mode is different,
+-- therefore we need to use remainder() here
 function "mod" (x, y : in real) return real is
     function cmod(a, b : in real) return real is
     begin
         report "mod C implementation" severity note;
     end function cmod;
-    attribute foreign of cmod : function is "VHPIDIRECT fmod";
+    attribute foreign of cmod : function is "VHPIDIRECT remainder";
 begin
     return cmod(x, y);
 end function "mod";

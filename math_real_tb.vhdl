@@ -19,6 +19,8 @@ architecture sim of math_real_tb is
     constant sim_vec : sim_vecs_t :=
     (
         (F_FLOOR, 0.0, 0.0, 0.0),
+        (F_FLOOR, 0.5, 0.0, 0.0),
+        (F_FLOOR, -0.5, 0.0, -1.0),
         (F_ROUND, 0.0, 0.0, 0.0),
         (F_MOD, 100.0, 50.0, 0.0),
         (F_MOD, 100.0, 49.0, 2.0),
@@ -38,7 +40,6 @@ begin
             case func is
                 when F_MOD =>
                     res := s.arg0 mod s.arg1;
-                    null;
                 when F_FLOOR =>
                     res := floor(s.arg0);
                 when F_ROUND =>
