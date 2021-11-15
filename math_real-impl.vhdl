@@ -12,7 +12,7 @@ begin
 end function sign;
 
 function ceil(x : in real) return real is
-    function cceil(x : in real) return real is
+    function cceil(a : in real) return real is
     begin
         report "ceil C implementation" severity note;
     end function cceil;
@@ -22,7 +22,7 @@ begin
 end function ceil;
 
 function floor(x : in real) return real is
-    function cfloor(x : in real) return real is
+    function cfloor(a : in real) return real is
     begin
         report "floor C implementation" severity note;
     end function cfloor;
@@ -32,7 +32,7 @@ begin
 end function floor;
 
 function round(x : in real) return real is
-    function cround(x : in real) return real is
+    function cround(a : in real) return real is
     begin
         report "round C implementation" severity note;
     end function cround;
@@ -42,7 +42,7 @@ begin
 end function round;
 
 function trunc(x : in real) return real is
-    function ctrunc(x : in real) return real is
+    function ctrunc(a : in real) return real is
     begin
         report "trunc C implementation" severity note;
     end function ctrunc;
@@ -52,7 +52,7 @@ begin
 end function trunc;
 
 function "mod" (x, y : in real) return real is
-    function cmod(x, y : in real) return real is
+    function cmod(a, b : in real) return real is
     begin
         report "mod C implementation" severity note;
     end function cmod;
@@ -62,7 +62,7 @@ begin
 end function "mod";
 
 function realmax(x, y : in real) return real is
-    function crealmax(x, y : in real) return real is
+    function crealmax(a, b : in real) return real is
     begin
         report "realmax C implementation" severity note;
     end function crealmax;
@@ -72,7 +72,7 @@ begin
 end function realmax;
 
 function realmin(x, y : in real) return real is
-    function crealmin(x, y : in real) return real is
+    function crealmin(a, b : in real) return real is
     begin
         report "realmin C implementation" severity note;
     end function crealmin;
@@ -242,4 +242,75 @@ function arctan(y : in real) return real is
 begin
     return carctan(y);
 end function arctan;
+
+function arctan(y : in real; x : in real) return real is
+    function carctan2(ya : in real; xa : in real) return real is
+    begin
+        report "carctan2 C implementation" severity note;
+    end function carctan2;
+    attribute foreign of carctan2 : function is "VHPIDIRECT libm.so atan2";
+begin
+    return carctan2(y, x);
+end function arctan;
+
+function sinh(x : in real) return real is
+    function csinh(a : in real) return real is
+    begin
+        report "csinh C implementation" severity note;
+    end function csinh;
+    attribute foreign of csinh : function is "VHPIDIRECT libm.so sinh";
+begin
+    return csinh(x);
+end function sinh;
+
+function cosh(x : in real) return real is
+    function ccosh(a : in real) return real is
+    begin
+        report "ccosh C implementation" severity note;
+    end function ccosh;
+    attribute foreign of ccosh : function is "VHPIDIRECT libm.so cosh";
+begin
+    return ccosh(x);
+end function cosh;
+
+function tanh(x : in real) return real is
+    function ctanh(a : in real) return real is
+    begin
+        report "ctanh C implementation" severity note;
+    end function ctanh;
+    attribute foreign of ctanh : function is "VHPIDIRECT libm.so tanh";
+begin
+    return ctanh(x);
+end function tanh;
+
+function arcsinh(x : in real) return real is
+    function carcsinh(a : in real) return real is
+    begin
+        report "carcsinh C implementation" severity note;
+    end function carcsinh;
+    attribute foreign of carcsinh : function is "VHPIDIRECT libm.so asinh";
+begin
+    return arcsinh(x);
+end function arcsinh;
+
+function arccosh(x : in real) return real is
+    function carccosh(a : in real) return real is
+    begin
+        report "carccosh C implementation" severity note;
+    end function carccosh;
+    attribute foreign of carccosh : function is "VHPIDIRECT libm.so acosh";
+begin
+    return carccosh(x);
+end function arccosh;
+
+function arctanh(x : in real) return real is
+    function carctanh(a : in real) return real is
+    begin
+        report "carctanh C implementation" severity note;
+    end function carctanh;
+    attribute foreign of carctanh : function is "VHPIDIRECT libm.so arctanh";
+begin
+    return carctanh(x);
+end function arctanh;
+
 end package body math_real;
