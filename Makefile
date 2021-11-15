@@ -9,3 +9,7 @@ all: $(OBJS)
 %o:%vhdl
 	ghdl -i $(GHDLOPTS) $<
 	ghdl -a $(GHDLOPTS) $<
+
+.PHONY: clean
+clean:
+	rm $(OBJS)
