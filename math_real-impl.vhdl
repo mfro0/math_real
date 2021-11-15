@@ -5,7 +5,7 @@ function sign(x : in real) return real is
     begin
         report "copysign C implementation" severity note;
     end function copysign;
-    attribute foreign of copysign : function is "VHPIDIRECT libm.so copysign";
+    attribute foreign of copysign : function is "VHPIDIRECT copysign";
 
 begin
     return copysign(1.0, x);
@@ -16,7 +16,7 @@ function ceil(x : in real) return real is
     begin
         report "ceil C implementation" severity note;
     end function cceil;
-    attribute foreign of cceil : function is "VHPIDIRECT libm.so ceil";
+    attribute foreign of cceil : function is "VHPIDIRECT ceil";
 begin
     return cceil(x);
 end function ceil;
@@ -26,7 +26,7 @@ function floor(x : in real) return real is
     begin
         report "floor C implementation" severity note;
     end function cfloor;
-    attribute foreign of cfloor : function is "VHPIDIRECT libm.so floor";
+    attribute foreign of cfloor : function is "VHPIDIRECT floor";
 begin
     return cfloor(x);
 end function floor;
@@ -36,7 +36,7 @@ function round(x : in real) return real is
     begin
         report "round C implementation" severity note;
     end function cround;
-    attribute foreign of cround : function is "VHPIDIRECT libm.so round";
+    attribute foreign of cround : function is "VHPIDIRECT round";
 begin
     return cround(x);
 end function round;
@@ -46,7 +46,7 @@ function trunc(x : in real) return real is
     begin
         report "trunc C implementation" severity note;
     end function ctrunc;
-    attribute foreign of ctrunc : function is "VHPIDIRECT libm.so trunc";
+    attribute foreign of ctrunc : function is "VHPIDIRECT trunc";
 begin
     return ctrunc(x);
 end function trunc;
@@ -56,7 +56,7 @@ function "mod" (x, y : in real) return real is
     begin
         report "mod C implementation" severity note;
     end function cmod;
-    attribute foreign of cmod : function is "VHPIDIRECT libm.so fmod";
+    attribute foreign of cmod : function is "VHPIDIRECT fmod";
 begin
     return cmod(x, y);
 end function "mod";
@@ -66,7 +66,7 @@ function realmax(x, y : in real) return real is
     begin
         report "realmax C implementation" severity note;
     end function crealmax;
-    attribute foreign of crealmax : function is "VHPIDIRECT libm.so fmax";
+    attribute foreign of crealmax : function is "VHPIDIRECT fmax";
 begin
     return crealmax(x, y);
 end function realmax;
@@ -76,7 +76,7 @@ function realmin(x, y : in real) return real is
     begin
         report "realmin C implementation" severity note;
     end function crealmin;
-    attribute foreign of crealmin : function is "VHPIDIRECT libm.so fmin";
+    attribute foreign of crealmin : function is "VHPIDIRECT fmin";
 begin
     return crealmin(x, y);
 end function realmin;
@@ -108,7 +108,7 @@ function sqrt(x : in real) return real is
     begin
         report "sqrt C implementation" severity note;
     end function csqrt;
-    attribute foreign of csqrt : function is "VHPIDIRECT libm.so sqrt";
+    attribute foreign of csqrt : function is "VHPIDIRECT sqrt";
 begin
     return csqrt(x);
 end function sqrt;
@@ -118,7 +118,7 @@ function cbrt(x : in real) return real is
     begin
         report "cbrt C implementation" severity note;
     end function ccbrt;
-    attribute foreign of ccbrt : function is "VHPIDIRECT libm.so cbrt";
+    attribute foreign of ccbrt : function is "VHPIDIRECT cbrt";
 begin
     return ccbrt(x);
 end function cbrt;
@@ -133,7 +133,7 @@ function "**" (x : in real; y : in real) return real is
     begin
         report "pow C implementation" severity note;
     end function cpow;
-    attribute foreign of cpow : function is "VHPIDIRECT libm.so pow";
+    attribute foreign of cpow : function is "VHPIDIRECT pow";
 begin
     return cpow(x, y);
 end function "**";
@@ -143,7 +143,7 @@ function exp(x : in real) return real is
     begin
         report "cexp C implementation" severity note;
     end function cexp;
-    attribute foreign of cexp : function is "VHPIDIRECT libm.so fexp";
+    attribute foreign of cexp : function is "VHPIDIRECT exp";
 begin
     return cexp(x);
 end function exp;
@@ -153,7 +153,7 @@ function log(x : in real) return real is
     begin
         report "clog C implementation" severity note;
     end function clog;
-    attribute foreign of clog : function is "VHPIDIRECT libm.so log";
+    attribute foreign of clog : function is "VHPIDIRECT log";
 begin
     return clog(x);
 end function log;
@@ -163,7 +163,7 @@ function log2(x : in real) return real is
     begin
         report "clog2 C implementation" severity note;
     end function clog2;
-    attribute foreign of clog2 : function is "VHPIDIRECT libm.so log2";
+    attribute foreign of clog2 : function is "VHPIDIRECT log2";
 begin
     return clog2(x);
 end function log2;
@@ -173,7 +173,7 @@ function log10(x : in real) return real is
     begin
         report "clog10 C implementation" severity note;
     end function clog10;
-    attribute foreign of clog10 : function is "VHPIDIRECT libm.so log10";
+    attribute foreign of clog10 : function is "VHPIDIRECT log10";
 begin
     return clog10(x);
 end function log10;
@@ -188,7 +188,7 @@ function sin(x : in real) return real is
     begin
         report "csin C implementation" severity note;
     end function csin;
-    attribute foreign of csin : function is "VHPIDIRECT libm.so sin";
+    attribute foreign of csin : function is "VHPIDIRECT sin";
 begin
     return csin(x);
 end function sin;
@@ -198,7 +198,7 @@ function cos(x : in real) return real is
     begin
         report "ccos C implementation" severity note;
     end function ccos;
-    attribute foreign of ccos : function is "VHPIDIRECT libm.so cos";
+    attribute foreign of ccos : function is "VHPIDIRECT cos";
 begin
     return ccos(x);
 end function cos;
@@ -208,7 +208,7 @@ function tan(x : in real) return real is
     begin
         report "ctan C implementation" severity note;
     end function ctan;
-    attribute foreign of ctan : function is "VHPIDIRECT libm.so tan";
+    attribute foreign of ctan : function is "VHPIDIRECT tan";
 begin
     return ctan(x);
 end function tan;
@@ -218,7 +218,7 @@ function arcsin(x : in real) return real is
     begin
         report "carcsin C implementation" severity note;
     end function carcsin;
-    attribute foreign of carcsin : function is "VHPIDIRECT libm.so asin";
+    attribute foreign of carcsin : function is "VHPIDIRECT asin";
 begin
     return carcsin(x);
 end function arcsin;
@@ -228,7 +228,7 @@ function arccos(x : in real) return real is
     begin
         report "carccos C implementation" severity note;
     end function carccos;
-    attribute foreign of carccos : function is "VHPIDIRECT libm.so acos";
+    attribute foreign of carccos : function is "VHPIDIRECT acos";
 begin
     return carccos(x);
 end function arccos;
@@ -238,7 +238,7 @@ function arctan(y : in real) return real is
     begin
         report "carctan C implementation" severity note;
     end function carctan;
-    attribute foreign of carctan : function is "VHPIDIRECT libm.so atan";
+    attribute foreign of carctan : function is "VHPIDIRECT atan";
 begin
     return carctan(y);
 end function arctan;
@@ -248,7 +248,7 @@ function arctan(y : in real; x : in real) return real is
     begin
         report "carctan2 C implementation" severity note;
     end function carctan2;
-    attribute foreign of carctan2 : function is "VHPIDIRECT libm.so atan2";
+    attribute foreign of carctan2 : function is "VHPIDIRECT atan2";
 begin
     return carctan2(y, x);
 end function arctan;
@@ -258,7 +258,7 @@ function sinh(x : in real) return real is
     begin
         report "csinh C implementation" severity note;
     end function csinh;
-    attribute foreign of csinh : function is "VHPIDIRECT libm.so sinh";
+    attribute foreign of csinh : function is "VHPIDIRECT sinh";
 begin
     return csinh(x);
 end function sinh;
@@ -268,7 +268,7 @@ function cosh(x : in real) return real is
     begin
         report "ccosh C implementation" severity note;
     end function ccosh;
-    attribute foreign of ccosh : function is "VHPIDIRECT libm.so cosh";
+    attribute foreign of ccosh : function is "VHPIDIRECT cosh";
 begin
     return ccosh(x);
 end function cosh;
@@ -278,7 +278,7 @@ function tanh(x : in real) return real is
     begin
         report "ctanh C implementation" severity note;
     end function ctanh;
-    attribute foreign of ctanh : function is "VHPIDIRECT libm.so tanh";
+    attribute foreign of ctanh : function is "VHPIDIRECT tanh";
 begin
     return ctanh(x);
 end function tanh;
@@ -288,7 +288,7 @@ function arcsinh(x : in real) return real is
     begin
         report "carcsinh C implementation" severity note;
     end function carcsinh;
-    attribute foreign of carcsinh : function is "VHPIDIRECT libm.so asinh";
+    attribute foreign of carcsinh : function is "VHPIDIRECT asinh";
 begin
     return arcsinh(x);
 end function arcsinh;
@@ -298,7 +298,7 @@ function arccosh(x : in real) return real is
     begin
         report "carccosh C implementation" severity note;
     end function carccosh;
-    attribute foreign of carccosh : function is "VHPIDIRECT libm.so acosh";
+    attribute foreign of carccosh : function is "VHPIDIRECT acosh";
 begin
     return carccosh(x);
 end function arccosh;
@@ -308,7 +308,7 @@ function arctanh(x : in real) return real is
     begin
         report "carctanh C implementation" severity note;
     end function carctanh;
-    attribute foreign of carctanh : function is "VHPIDIRECT libm.so arctanh";
+    attribute foreign of carctanh : function is "VHPIDIRECT atanh";
 begin
     return carctanh(x);
 end function arctanh;
