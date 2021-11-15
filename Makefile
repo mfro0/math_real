@@ -18,7 +18,7 @@ GHDLOPTS=--std=08
 
 SRCS=\
 	math_real.vhdl \
-	math_real-impl.vhdl \
+	math_real-body.vhdl \
 	math_real_tb.vhdl
 
 OBJS=$(patsubst %.vhdl, %.o, $(SRCS))
