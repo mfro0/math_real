@@ -82,6 +82,9 @@ begin
         variable func   : funcs_t;
         variable s      : sim_vec_t;
         variable res    : real;
+        variable seed1,
+                 seed2  : integer := 1;
+        variable random : real;
     begin
         for i in sim_vec'low to sim_vec'high loop
             s := sim_vec(i);
@@ -120,7 +123,9 @@ begin
 
         -- do some random number testing with uniform
         for i in 1 to 10 loop
-        
+            uniform(seed1, seed2, random);
+            report "random : " & to_string(random, "%10.20f") severity note;
+
         end loop;
         wait;
     end process test;
