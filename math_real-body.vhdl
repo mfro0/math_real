@@ -98,6 +98,7 @@ begin
     return crealmin(x, y);
 end function realmin;
 
+/*
 procedure uniform(variable seed1, seed2 : inout positive; variable x : out real) is
     function crand return integer is
     begin
@@ -119,6 +120,38 @@ begin
     end if;
     x := real(crand) / real(RAND_MAX);
 end procedure uniform;
+*/
+
+-- use original implementation to make sure uniform sequence for given
+-- seed values are the same
+procedure uniform (variable seed1, seed2 : inout positive; variable x : out real) is
+    variable z, k : integer;
+    variable s1, s2 : integer;
+begin
+    k := seed1 / 53668;
+    s1 := 40014 * (seed1 - k * 53668) - k * 12211;
+    if s1 < 0 then
+        seed1 := s1 + 2147483563;
+    else
+        seed1 := s1;
+    end if;
+
+    k := seed2 / 52774;
+    s2 := 40692 * (seed2 - k * 52774) - k * 3791;
+    if s2 < 0 then
+        seed2 := s2 + 2147483399;
+    else
+        seed2 := s2;
+    end if;
+
+    z := seed1 - seed2;
+    if z < 1 then
+        z := z + 2147483562;
+    end if;
+
+    x := real (z) * 4.656613e-10;
+end uniform;
+
 
 function sqrt(x : in real) return real is
     function csqrt(a : in real) return real is
