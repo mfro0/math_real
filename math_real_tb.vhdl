@@ -116,6 +116,12 @@ begin
             assert (res = s.expected) report funcs_t'image(func) & ": expected " & real'image(s.expected) &
                                              ", got " & to_string(res, "%15.5f") & " instead" severity failure;
         end loop;
+        report "math_real functions checked; no (obvious) errors" severity note;
+
+        -- do some random number testing with uniform
+        for i in 1 to 10 loop
+        
+        end loop;
         wait;
     end process test;
 end architecture sim;
